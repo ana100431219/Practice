@@ -1,8 +1,8 @@
 import pandas as pd 
 
-df_participants=pd.read_excel('ana100431219\Practice\main\participants.xlsx')
-df_countries=pd.read_excel('ana100431219\Practice\main\countries.xlsx')
-df_projects=pd.read_excel('ana100431219\Practice\main\projects.xlsx')
+df_participants=pd.read_excel('ana100431219\Practice\blob\main\participants.xlsx')
+df_countries=pd.read_excel('ana100431219\Practice\blob\main\countries.xlsx')
+df_projects=pd.read_excel('ana100431219\Practice\blob\main\projects.xlsx')
 
 acronyms=list(df_countries.Acronym) 
 countries=list(df_countries.Country)
