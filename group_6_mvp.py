@@ -1,8 +1,12 @@
+npm install read-excel-file --save
+import readXlsxFile from 'read-excel-file'
+
 import pandas as pd 
 
-df_participants=pd.read_excel('https://github.com/ana100431219/Practice/blob/23c6d819a8bb443d603672740a481f0035bf25c1/participants.xlsx')
-df_countries=pd.read_excel('https://github.com/ana100431219/Practice/blob/23c6d819a8bb443d603672740a481f0035bf25c1/countries.xlsx')
-df_projects=pd.read_excel('https://github.com/ana100431219/Practice/blob/23c6d819a8bb443d603672740a481f0035bf25c1/projects.xlsx')
+
+df_participants=pd.read_excel('ana100431219/Pratice/main/participants.xlsx')
+df_countries=pd.read_excel('ana100431219/Pratice/main/countries.xlsx')
+df_projects=pd.read_excel('ana100431219/Pratice/main/projects.xlsx')
 
 acronyms=list(df_countries.Acronym) 
 countries=list(df_countries.Country)
