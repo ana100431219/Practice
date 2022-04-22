@@ -1,6 +1,3 @@
-npm install read-excel-file --save
-import readXlsxFile from 'read-excel-file'
-
 import pandas as pd 
 
 
