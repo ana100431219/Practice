@@ -55,7 +55,6 @@ df_grants_year = pd.read_sql('''SELECT p.year, SUM(o.ecContribution) AS grants
     FROM organizations o JOIN projects p ON o.projectID==p.projectID
     WHERE o.country='{}'
     GROUP BY p.year '''.format(country), conn)
-conn.close()
 
 #grants
 st.subheader(f'Yearly EC contribution in {ct} (€)')
