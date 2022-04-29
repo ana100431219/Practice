@@ -1,5 +1,6 @@
 import sqlite3
-import pandas as pd #from sqlite3.dbapi2 import DatabaseError
+import pandas as pd 
+from sqlite3.dbapi2 import DatabaseError
 
 con= sqlite3.connect('ecsel_database.db')
 df_projects.to_sql('projects', con, if_exists='replace', index= False)
