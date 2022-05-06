@@ -5,7 +5,7 @@ from PIL import Image
 #Select country
 con=sqlite3.connect(ecsel_database.db)
 ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
-country=pd.read_sql(selects['country'].format(ct), cnn)
+country=pd.read_sql(selects['country'].format(ct), con)
 country=country.Acronym.item()
 st.write(f'You selected: {country}-{ct}')
 
