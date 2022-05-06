@@ -2,39 +2,9 @@ import sqlite3
 import pandas as pd 
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
-import pandas as pd 
-from google.colab import drive
-drive.mount('/content/drive', force_remount=True)
 
 
-acronyms=list(df_countries.Acronym) 
-countries=list(df_countries.Country)
-answer= input("Please, input the name of an acronym or a country: ")
-while answer.upper() not in acronyms and answer.title() not in countries : 
-    answer= input("Please, input the name of an acronym or a country ")
-if answer.upper() in acronyms :
-  answer_acronym = answer.upper()
-  answer_name = df_countries[df_countries.Acronym==answer_acronym]
-elif answer.title() in countries:
-  answer_name = answer.title()
-  answer_acronym = df_countries[df_countries.Country== answer_name].Acronym.item()
-
-print('Selected:{}-{}'.format(answer_acronym,answer_name))    
-
-df_selcountry=df_participants[df_participants.country==answer_acronym]
-df_projyear=df_projects[["projectID","year"]]
-df_selcountry=pd.merge(df_selcountry,df_projyear,how="left",on="projectID")
-
-df_ECcontr_year=df_selcountry[["ecContribution","year"]].groupby(by="year").sum()
-df_ECcontr_year=df_selcountry.groupby('year').sum().ecContribution
-df_ECcontr_year.plot(kind='bar', title='Total EU contribution in {ct} (M€)')
-
-df_ECcontr_year.describe()
-
-df_best=df_selcountry.groupby(['shortName','name','activityType','organizationURL']).agg({'ecContribution':['count', 'sum']}).sort_values([("ecContribution","sum")],ascending=False)
-df_best.to_excel("country_participants.xlsx")
-df_best.head()
-
+con= sqlite3.connect('ecsel_database.db') 
 
 #colnames={c:c for c in list(df)}
 database = con
