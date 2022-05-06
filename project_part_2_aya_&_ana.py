@@ -61,7 +61,7 @@ selects= {
 }
 
 #Title
-image=Image.open('KDT-JU.png')
+image=Image.open('descarga.png')
 st.image(image)
 st.title('Partner search tool')
 
