@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd 
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
-con= sqlite3.connect('ecsel_database.db')
+
 
 df_participants=pd.read_excel(r'C:/Users/User/Documents/Downloads/participants.xlsx')
 df_countries=pd.read_excel(r'C:/Users/User/Documents/Downloads/countries.xlsx')
@@ -12,6 +12,7 @@ df_projects.to_sql('projects', con, if_exists='replace', index= False)
 df_countries.to_sql('countries', con, if_exists='replace', index= False)
 df_participants.to_sql('participants', con, if_exists='replace', index= False)
 
+con= sqlite3.connect('ecsel_database.db')
 con.close()
 df_projects.head()
 
