@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd 
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
-con= sqlite3.connect('ecsel_database.db')
+con= sqlite3.connect('excel_database.db')
 
 df_participants=pd.read_excel(r'C:/Users/User/Desktop/PROGRA/participants.xlsx')
 df_countries=pd.read_excel(r'C:/Users/User/Desktop/PROGRA/countries.xlsx')
@@ -16,7 +16,7 @@ con.close()
 df_projects.head()
 
 #colnames={c:c for c in list(df)}
-database = ecsel_database.db
+database = excel_database.db
 selects= {
 'country':
 '''SELECT Acronym FROM countries WHERE Country = "{}" ''',
