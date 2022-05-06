@@ -4,9 +4,9 @@ from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
 con= sqlite3.connect('excel_database.db')
 
-df_participants=pd.read_excel(r'C:/Users/User/Desktop/PROGRA/participants.xlsx')
-df_countries=pd.read_excel(r'C:/Users/User/Desktop/PROGRA/countries.xlsx')
-df_projects=pd.read_excel(r'C:/Users/User/Desktop/PROGRA/projects.xlsx')
+df_participants=pd.read_excel(r'C:/Users/User/Documents/Download/participants.xlsx')
+df_countries=pd.read_excel(r'C:/Users/User/Documents/Download/countries.xlsx')
+df_projects=pd.read_excel(r'C:/Users/User/Documents/Download/projects.xlsx')
 
 df_projects.to_sql('projects', con, if_exists='replace', index= False)
 df_countries.to_sql('countries', con, if_exists='replace', index= False)
