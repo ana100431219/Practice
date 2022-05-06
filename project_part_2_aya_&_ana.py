@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd 
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
-con= sqlite3.connect('excel_database.db')
+con= sqlite3.connect('ecsel_database.db')
 
 df_participants=pd.read_excel(r'C:/Users/User/Documents/Downloads/participants.xlsx')
 df_countries=pd.read_excel(r'C:/Users/User/Documents/Downloads/countries.xlsx')
