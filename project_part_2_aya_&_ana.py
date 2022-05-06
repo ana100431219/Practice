@@ -4,7 +4,7 @@ from PIL import Image
 
 
 #Select country
-con=sqlite3.connect(database)
+con=sqlite3.connect(ecsel_database.db)
 ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
 country=pd.read_sql(selects['country'].format(ct), conn)
 country=country.Acronym.item()
