@@ -3,9 +3,9 @@ import pandas as pd
 from PIL import Image
 
 #Select country
-conn=sqlite3.connect(ecsel_database.db)
+con=sqlite3.connect(ecsel_database.db)
 ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
-country=pd.read_sql(selects['country'].format(ct), conn)
+country=pd.read_sql(selects['country'].format(ct), cnn)
 country=country.Acronym.item()
 st.write(f'You selected: {country}-{ct}')
 
