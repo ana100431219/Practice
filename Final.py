@@ -50,8 +50,8 @@ conn=sqlite3.connect(database)
     #st.write(f'You selected: {country}-{ct}')
 
     #Other selects
-    dfs={}
-    for key,sel in selects.items():
+dfs={}
+for key,sel in selects.items():
       #dfs[key]=pd.read_sql(sel.format(country), conn)
 
     #df_grants_year = pd.read_sql('''SELECT p.year, SUM(o.ecContribution) AS grants
