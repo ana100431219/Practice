@@ -14,16 +14,18 @@ from sqlite3 import connect
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
 
-#colnames={c:c for c in list(df)}
-database = 'CreateDB.db'
 
 #Title
 image=Image.open('descarga.png')
 st.image(image)
 st.title('Partner search tool')
 
-#Select country
+database = 'CreateDB.db'
 conn=sqlite3.connect(database)
+df= pd.read_sql('SELECT * FROM countries, conn)
+colnames={c:c for c in list(df)}
+    
+#Select country
 ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
 country=pd.read_sql('SELECT Country FROM countries WHERE Country=ct', conn)
 country=country.Acronym.item()
