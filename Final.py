@@ -24,8 +24,7 @@ st.title('Partner search tool')
 #Select country
 conn=sqlite3.connect(database)
 ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
-cur = conn.cursor() 
-country=cur.execute('''SELECT Country FROM countries WHERE Country=ct''')
+country=('''SELECT Country FROM countries'''.format(ct), conn)
 country=country.Acronym.item()
 st.write(f'You selected: {country}-{ct}')
 
