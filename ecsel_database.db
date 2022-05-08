@@ -25,7 +25,7 @@
         "from google.colab import drive\n",
         "drive.mount('/content/drive', force_remount=True)\n",
         "\n",
-        "con= sqlite3.connect('CreateDB.db')\n",
+        "con= sqlite3.connect('ecsel_database.db')\n",
         "df_participants=pd.read_excel('/content/drive/MyDrive/participants.xlsx')\n",
         "df_countries=pd.read_excel('/content/drive/MyDrive/countries.xlsx')\n",
         "df_projects=pd.read_excel('/content/drive/MyDrive/projects.xlsx')\n",
