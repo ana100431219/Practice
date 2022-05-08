@@ -7,7 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/14VqC4DKTte6YLYpAr94IXcMPuHNG1jMp
 """
 
-import sqlite3 
+import sqlite3
+from sqlite3 import connect
 import pandas as pd 
 import streamlit as st
 from sqlite3.dbapi2 import DatabaseError
