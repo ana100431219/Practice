@@ -27,8 +27,8 @@ conn=sqlite3.connect(database)
 df_countries= pd.read_sql('SELECT * FROM countries', conn)  #for get all data from table countries
 countries=list(df_countries.Country) #for selectbox
 
-country= st.selectbox('Select country', countries)
-ac = df_countries[df_countries.Country== ct].Acronym.item()
+ct= st.selectbox('Select country', countries)
+country = df_countries[df_countries.Country== ct].Acronym.item()
 
 st.write(f'You selected: {country}-{ct}')
 
