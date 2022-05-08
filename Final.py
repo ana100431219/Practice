@@ -24,7 +24,7 @@ st.title('Partner search tool')
 #Select country
 conn=sqlite3.connect(database)
 ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
-country= pd.read_sql('SELECT['Country'.format(ct)] FROM countries', conn) 
+country= pd.read_sql('SELECT['Country'] FROM countries', conn) 
 country=country.Acronym.item()
 st.write(f'You selected: {country}-{ct}')
 
