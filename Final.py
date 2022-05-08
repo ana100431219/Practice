@@ -26,7 +26,7 @@ df= pd.read_sql('SELECT * FROM countries', conn)
 colnames={c:c for c in list(df)}
     
 #Select country
-ct= st.selectbox('Select country', ['Spain', 'France', 'Germany'])
+ct= st.selectbox('Select country', colnames)
 country=pd.read_sql('SELECT Country FROM countries WHERE Country=ct', conn)
 country=country.Acronym.item()
 st.write(f'You selected: {country}-{ct}')
