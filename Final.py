@@ -9,7 +9,7 @@ Original file is located at
 
 import sqlite3 
 import pandas as pd
-pip install streamlit
+import streamlit
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
 
