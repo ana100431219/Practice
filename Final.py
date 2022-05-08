@@ -62,7 +62,6 @@ df_grants_year = pd.read_sql('''SELECT j.year, SUM(p.ecContribution) AS grants
     WHERE p.country='{}'
     GROUP BY j.year '''.format(country), conn)
 
-conn.close()
 
 #grants
 st.subheader(f'Yearly EC contribution in {ct} (€)')
@@ -83,3 +82,5 @@ st.download_button(
 st.subheader(f'Project coordinators in {ct}')
 st.dataframe(dfs['coordinators'])
 csv_c=dfs['coordinators'].to_csv().encode('utf-8')
+
+conn.close()
