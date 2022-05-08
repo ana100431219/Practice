@@ -16,6 +16,27 @@ from PIL import Image
 #colnames={c:c for c in list(df_countries)}
 
 database = 'CreateDB.db'
+selects= {
+'country':
+'''SELECT Acronym FROM countries WHERE Country = "{}" ''',
+
+'grants':
+'''SELECT SUM (o.ecContribution) AS grants
+  FROM organizations o JOIN projects p ON o.projectID==p.projectID
+  WHERE o.country = '{}'
+  GROUP BY p.year''',
+
+'participants':
+'''SELECT shortName, name, activityType, organizationURL, COUNT(ecContribution) n_projects, SUM(ecContribution)   #maybe this is incomplete
+  FROM organizations
+  WHERE country = '{}'
+  GROUP BY name ORDER BY SUM(ecContribution) DESC''',
+
+'coordinators':
+'''SELECT o.shortName, o.name, p.acronym, p.keywords
+  FROM organizations o JOIN projects p ON o.projectID = p.projectID
+  WHERE o.country='{}' AND o.role = 'coordinator' '''
+}
 
 #Title
 image=Image.open('descarga.png')
@@ -33,7 +54,7 @@ country = df_countries[df_countries.Country== ct].Acronym.item()
 st.write(f'You selected: {country}-{ct}')
 
 dfs={}
-for key, sel in countries:
+for key, sel in selects.items():
   dfs[key]=pd.read_sql(sel.format(country), conn)
 
 df_grants_year = pd.read_sql('''SELECT j.year, SUM(p.ecContribution) AS grants
