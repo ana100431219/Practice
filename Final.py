@@ -43,20 +43,21 @@ selects= {
 
 #Select country
 conn=sqlite3.connect(database)
-#ct=st.selectbox('Select country', ['Spain', 'France', 'Germany'])
-#country=pd.read_sql(selects['country'].format(ct), conn)
-#country=country.Acronym.item()
-#st.write(f'You selected: {country}-{ct}')
 
-#Other selects
-dfs={}
-for key,sel in selects.items():
-  #dfs[key]=pd.read_sql(sel.format(country), conn)
+    #ct=st.selectbox('Select country', ['Spain', 'France', 'Germany'])
+    #country=pd.read_sql(selects['country'].format(ct), conn)
+    #country=country.Acronym.item()
+    #st.write(f'You selected: {country}-{ct}')
 
-#df_grants_year = pd.read_sql('''SELECT p.year, SUM(o.ecContribution) AS grants
-#    FROM organizations o JOIN projects p ON o.projectID==p.projectID
-#    WHERE o.country='{}'
-#    GROUP BY p.year '''.format(country), conn)
+    #Other selects
+    dfs={}
+    for key,sel in selects.items():
+      #dfs[key]=pd.read_sql(sel.format(country), conn)
+
+    #df_grants_year = pd.read_sql('''SELECT p.year, SUM(o.ecContribution) AS grants
+    #    FROM organizations o JOIN projects p ON o.projectID==p.projectID
+    #    WHERE o.country='{}'
+    #    GROUP BY p.year '''.format(country), conn)
 conn.close()
 
 #grants
