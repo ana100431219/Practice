@@ -33,7 +33,7 @@ country = df_countries[df_countries.Country== ct].Acronym.item()
 st.write(f'You selected: {country}-{ct}')
 
 dfs={}
-for key, sel in countries.items():
+for key, sel in countries:
   dfs[key]=pd.read_sql(sel.format(country), conn)
 
 df_grants_year = pd.read_sql('''SELECT j.year, SUM(p.ecContribution) AS grants
