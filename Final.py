@@ -8,27 +8,28 @@ Original file is located at
 """
 
 import sqlite3 
-import pandas as pd
+import pandas as pd 
 import streamlit as st
-from sqlite3 import connect
 from sqlite3.dbapi2 import DatabaseError
 from PIL import Image
 
+#colnames={c:c for c in list(df_countries)}
+
+database = 'CreateDB.db'
 
 #Title
 image=Image.open('descarga.png')
-st.image(image)
+st.image()
 st.title('Partner search tool')
 
-database = 'CreateDB.db'
-conn=sqlite3.connect(database)
-df= pd.read_sql('SELECT * FROM countries', conn)
-colnames={c:c for c in list(df)}
-    
 #Select country
-ct= st.selectbox('Select country', ['Spain','Italy','France'])
-country=pd.read_sql('SELECT Country FROM countries WHERE Country=ct', conn)
-country=country.Acronym.item()
+conn=sqlite3.connect(database)
+df_countries= pd.read_sql('SELECT * FROM countries', conn)  #for get all data from table countries
+countries=list(df_countries.Country) #for selectbox
+
+country= st.selectbox('Select country', countries)
+ac = df_countries[df_countries.Country== ct].Acronym.item()
+
 st.write(f'You selected: {country}-{ct}')
 
 #Other selects
