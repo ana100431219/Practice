@@ -71,10 +71,10 @@ for key,sel in selects.items():
 #csv_p=dfs['participants'].to_csv().encode('utf-8')
 
 #st.download_button(
-    label= 'Download participants data as CSV',
-    data=csv_p,
-    file_name=f'{country}_participants.csv',
-    mime='text/csv',
+    #label= 'Download participants data as CSV',
+    #data=csv_p,
+    #file_name=f'{country}_participants.csv',
+    #mime='text/csv',
 #)
 
 #coordinators
