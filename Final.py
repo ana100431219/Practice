@@ -18,24 +18,24 @@ from PIL import Image
 database = 'CreateDB.db'
 selects= {
 'country':
-'''SELECT Acronym FROM countries WHERE Country = country ''',
+'''SELECT Acronym FROM countries WHERE Country = {} ''',
 
 'grants':
 '''SELECT SUM(p.ecContribution) AS grants
   FROM participants p JOIN projects j ON p.projectID==j.projectID
-  WHERE p.country = country
+  WHERE p.country = {}
   GROUP BY j.year''',
 
 'participants':
 '''SELECT shortName, name, activityType, organizationURL, COUNT(ecContribution) n_projects, SUM(ecContribution)   
   FROM participants p
-  WHERE p.country = country
+  WHERE p.country = {}
   GROUP BY name ORDER BY SUM(ecContribution) DESC''',
 
 'coordinators':
 '''SELECT p.shortName, p.name, j.acronym
   FROM participants p JOIN projects j ON p.projectID = j.projectID
-  WHERE p.country=country AND p.role = 'coordinator' '''
+  WHERE p.country={} AND p.role = 'coordinator' '''
 }
 
 #Title
@@ -59,7 +59,7 @@ for key, sel in selects.items():
 
 df_grants_year = pd.read_sql('''SELECT j.year, SUM(p.ecContribution) AS grants
     FROM participants p JOIN projects j ON p.projectID==j.projectID
-    WHERE p.country='{}'
+    WHERE p.country={}
     GROUP BY j.year '''.format(country), conn)
 
 
