@@ -16,7 +16,7 @@ from PIL import Image
 
 #colnames={c:c for c in list(df_countries)}
 
-database='excel_database.db'
+database='CreateDB.db'
 selects= {
 'country':
 '''SELECT Acronym FROM countries WHERE Country = '{}' ''',
