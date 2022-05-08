@@ -21,21 +21,21 @@ selects= {
 '''SELECT Acronym FROM countries WHERE Country = "{}" ''',
 
 'grants':
-'''SELECT SUM (o.ecContribution) AS grants
-  FROM organizations o JOIN projects p ON o.projectID==p.projectID
-  WHERE o.country = '{}'
+'''SELECT SUM (p.ecContribution) AS grants
+  FROM participants p JOIN projects j ON p.projectID==j.projectID
+  WHERE p.country = '{}'
   GROUP BY p.year''',
 
 'participants':
-'''SELECT shortName, name, activityType, organizationURL, COUNT(ecContribution) n_projects, SUM(ecContribution)   #maybe this is incomplete
-  FROM organizations
+'''SELECT shortName, name, activityType, organizationURL, COUNT(ecContribution) n_projects, SUM(ecContribution)   
+  FROM participants
   WHERE country = '{}'
   GROUP BY name ORDER BY SUM(ecContribution) DESC''',
 
 'coordinators':
-'''SELECT o.shortName, o.name, p.acronym, p.keywords
-  FROM organizations o JOIN projects p ON o.projectID = p.projectID
-  WHERE o.country='{}' AND o.role = 'coordinator' '''
+'''SELECT p.shortName, p.name, j.acronym, j.keywords
+  FROM participants p JOIN projects j ON p.projectID = j.projectID
+  WHERE p.country='{}' AND p.role = 'coordinator' '''
 }
 
 #Title
