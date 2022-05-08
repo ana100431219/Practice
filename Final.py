@@ -18,24 +18,24 @@ from PIL import Image
 database = 'CreateDB.db'
 selects= {
 'country':
-'''SELECT Acronym FROM countries WHERE Country = "{}" ''',
+'''SELECT Acronym FROM countries WHERE Country = country ''',
 
 'grants':
-'''SELECT SUM (p.ecContribution) AS grants
+'''SELECT SUM(p.ecContribution) AS grants
   FROM participants p JOIN projects j ON p.projectID==j.projectID
-  WHERE p.country = '{}'
-  GROUP BY p.year''',
+  WHERE p.country = country
+  GROUP BY j.year''',
 
 'participants':
 '''SELECT shortName, name, activityType, organizationURL, COUNT(ecContribution) n_projects, SUM(ecContribution)   
   FROM participants
-  WHERE country = '{}'
+  WHERE country = country
   GROUP BY name ORDER BY SUM(ecContribution) DESC''',
 
 'coordinators':
-'''SELECT p.shortName, p.name, j.acronym, j.keywords
+'''SELECT p.shortName, p.name, j.acronym
   FROM participants p JOIN projects j ON p.projectID = j.projectID
-  WHERE p.country='{}' AND p.role = 'coordinator' '''
+  WHERE p.country=country AND p.role = 'coordinator' '''
 }
 
 #Title
