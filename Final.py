@@ -37,8 +37,8 @@ selects= {
 }
 
 #Title
-image=Image.open('descarga.png')
-st.image(Image)
+Image=Image.open('descarga.png')
+st.Image(Image)
 st.title('Partner search tool')
 
 #Select country
