@@ -22,7 +22,7 @@ st.title('Partner search tool')
 
 database = 'CreateDB.db'
 conn=sqlite3.connect(database)
-df= pd.read_sql('SELECT * FROM countries, conn)
+df= pd.read_sql('SELECT * FROM countries', conn)
 colnames={c:c for c in list(df)}
     
 #Select country
