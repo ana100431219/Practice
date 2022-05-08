@@ -32,6 +32,11 @@ country = df_countries[df_countries.Country== ct].Acronym.item()
 
 st.write(f'You selected: {country}-{ct}')
 
+df_grants_year = pd.read_sql('''SELECT j.year, SUM(p.ecContribution) AS grants
+    FROM participants p JOIN projects j ON p.projectID==j.projectID
+    WHERE p.country='{}'
+    GROUP BY j.year '''.format(country), conn)
+
 conn.close()
 
 #grants
