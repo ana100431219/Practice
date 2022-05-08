@@ -28,8 +28,8 @@ selects= {
 
 'participants':
 '''SELECT shortName, name, activityType, organizationURL, COUNT(ecContribution) n_projects, SUM(ecContribution)   
-  FROM participants
-  WHERE country = country
+  FROM participants p
+  WHERE p.country = country
   GROUP BY name ORDER BY SUM(ecContribution) DESC''',
 
 'coordinators':
