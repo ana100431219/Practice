@@ -61,14 +61,14 @@ for key,sel in selects.items():
 #conn.close()
 
 #grants
-st.subheader(f'Yearly EC contribution in {ct} (€)')
-st.bar_chart(dfs['grants'])
+#st.subheader(f'Yearly EC contribution in {ct} (€)')
+#st.bar_chart(dfs['grants'])
 
 #participants
-st.subheader(f'Participants in {ct}')
-st.dataframe(dfs['participants'])
+#st.subheader(f'Participants in {ct}')
+#st.dataframe(dfs['participants'])
 csv_p=dfs['participants'].to_csv().encode('utf-8')
-st.download_button(
+#st.download_button(
     label= 'Download participants data as CSV',
     data=csv_p,
     file_name=f'{country}_participants.csv',
@@ -76,6 +76,6 @@ st.download_button(
 )
 
 #coordinators
-st.subheader(f'Project coordinators in {ct}')
-st.dataframe(dfs['coordinators'])
+#st.subheader(f'Project coordinators in {ct}')
+#st.dataframe(dfs['coordinators'])
 csv_c=dfs['coordinators'].to_csv().encode('utf-8')
