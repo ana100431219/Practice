@@ -37,9 +37,9 @@ selects= {
 }
 
 #Title
-image=Image.open('descarga.png')
-st.image()
-st.title('Partner search tool')
+#image=Image.open('descarga.png')
+#st.image()
+#st.title('Partner search tool')
 
 #Select country
 conn=sqlite3.connect(database)
