@@ -1,0 +1,47 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "CreateDB",
+      "provenance": [],
+      "collapsed_sections": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "import sqlite3 as sql\n",
+        "import pandas as pd \n",
+        "from sqlite3.dbapi2 import DatabaseError\n",
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive', force_remount=True)\n",
+        "\n",
+        "con= sqlite3.connect('ecsel_database.db')\n",
+        "df_participants=pd.read_excel('/content/drive/MyDrive/participants.xlsx')\n",
+        "df_countries=pd.read_excel('/content/drive/MyDrive/countries.xlsx')\n",
+        "df_projects=pd.read_excel('/content/drive/MyDrive/projects.xlsx')\n",
+        "\n",
+        "df_projects.to_sql('projects', con, if_exists='replace', index= False)\n",
+        "df_countries.to_sql('countries', con, if_exists='replace', index= False)\n",
+        "df_participants.to_sql('participants', con, if_exists='replace', index= False)\n",
+        "\n",
+        "con.close()\n",
+        "df_projects.head()"
+      ],
+      "metadata": {
+        "id": "Pfi6howvq6-Q"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
