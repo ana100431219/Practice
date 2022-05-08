@@ -45,8 +45,8 @@ selects= {
 conn=sqlite3.connect(database)
 #ct=st.selectbox('Select country', ['Spain', 'France', 'Germany'])
 #country=pd.read_sql(selects['country'].format(ct), conn)
-country=country.Acronym.item()
-st.write(f'You selected: {country}-{ct}')
+#country=country.Acronym.item()
+#st.write(f'You selected: {country}-{ct}')
 
 #Other selects
 dfs={}
