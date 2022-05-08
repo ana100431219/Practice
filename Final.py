@@ -58,7 +58,7 @@ for key,sel in selects.items():
     #    FROM organizations o JOIN projects p ON o.projectID==p.projectID
     #    WHERE o.country='{}'
     #    GROUP BY p.year '''.format(country), conn)
-conn.close()
+#conn.close()
 
 #grants
 st.subheader(f'Yearly EC contribution in {ct} (€)')
