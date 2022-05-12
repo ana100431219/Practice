@@ -14,7 +14,7 @@ from sqlite3.dbapi2 import DatabaseError
 from sqlite3 import connect
 from PIL import Image
 
-database='ecsel_database.db'
+database='CreateDB.db'
 selects= {
 'country':
 '''SELECT Acronym FROM countries WHERE Country = '{}' ''',
