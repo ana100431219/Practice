@@ -10,7 +10,6 @@ Original file is located at
 import sqlite3
 import pandas as pd 
 import streamlit as st
-from sqlite3.dbapi2 import DatabaseError
 from sqlite3 import connect
 from PIL import Image
 
