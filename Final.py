@@ -38,7 +38,7 @@ selects= {
 
 image=Image.open('descarga.png')
 st.image(image)
-st.title('Partner search tool')
+st.title('Partner Search Tool')
 
 
 conn=sqlite3.connect(database)
