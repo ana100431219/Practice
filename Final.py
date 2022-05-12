@@ -79,4 +79,14 @@ st.subheader(f'Project coordinators in {ct}')
 st.dataframe(dfs['coordinators'])
 csv_c=dfs['coordinators'].to_csv().encode('utf-8')
 
+#coordinators
+st.subheader(f'Project coordinators in {ct}')
+st.dataframe(dfs['coordinators'])
+csv_c=dfs['coordinators'].to_csv().encode('utf-8')
+st.download_button(
+    label= 'Download participants data as CSV',
+    data=csv_c,
+    file_name=f'{country}_coordinators.csv',
+    mime='text/csv',
+)
 conn.close()
