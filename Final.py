@@ -67,6 +67,7 @@ st.bar_chart(dfs['grants'])
 st.subheader(f'Participants in {ct}')
 st.dataframe(dfs['participants'])
 csv_p=dfs['participants'].to_csv().encode('utf-8')
+
 @st.cache
 st.download_button(
     label= 'Download participants data as CSV',
@@ -80,6 +81,7 @@ st.download_button(
 st.subheader(f'Project coordinators in {ct}')
 st.dataframe(dfs['coordinators'])
 csv_c=dfs['coordinators'].to_csv().encode('utf-8')
+
 @st.cache
 st.download_button(
     label= 'Download coordinators data as CSV',
