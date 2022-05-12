@@ -14,8 +14,6 @@ from sqlite3.dbapi2 import DatabaseError
 from sqlite3 import connect
 from PIL import Image
 
-#colnames={c:c for c in list(df_countries)}
-
 database='CreateDB.db'
 selects= {
 'country':
