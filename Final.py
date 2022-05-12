@@ -36,12 +36,11 @@ selects= {
   WHERE p.country='{}' AND p.role = 'coordinator' '''
 }
 
-#Title
 image=Image.open('descarga.png')
 st.image(image)
 st.title('Partner search tool')
 
-#Select country
+
 conn=sqlite3.connect(database)
 df_countries= pd.read_sql('SELECT * FROM countries', conn)  #for get all data from table countries
 countries=list(df_countries.Country) #for selectbox
@@ -61,11 +60,10 @@ df_grants_year = pd.read_sql('''SELECT j.year, SUM(p.ecContribution) AS grants
     GROUP BY j.year '''.format(country), conn)
 
 
-#grants
 st.subheader(f'Yearly EC contribution in {ct} (€)')
 st.bar_chart(dfs['grants'])
 
-#participants
+
 st.subheader(f'Participants in {ct}')
 st.dataframe(dfs['participants'])
 csv_p=dfs['participants'].to_csv().encode('utf-8')
@@ -76,7 +74,7 @@ st.download_button(
     mime='text/csv',
 )
 
-#coordinators
+
 st.subheader(f'Project coordinators in {ct}')
 st.dataframe(dfs['coordinators'])
 csv_c=dfs['coordinators'].to_csv().encode('utf-8')
